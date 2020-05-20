@@ -1,0 +1,23 @@
+/* ==========================================================================
+   #WRAPPER
+   ========================================================================== */
+
+$tasty-wrapper-width:   1200px !default;
+$tasty-wrapper-padding: $tasty-global-spacing-unit !default;
+
+/**
+ * Page-level constraining and wrapping elements.
+ */
+
+@if (type-of($tasty-wrapper-width) != number) {
+  @error "`#{$tasty-wrapper-width}` needs to be a number.";
+}
+
+.o-wrapper {
+  @include tasty-clearfix();
+  padding-right: $tasty-wrapper-padding;
+  padding-left:  $tasty-wrapper-padding;
+  margin-right: auto;
+  margin-left:  auto;
+  max-width: $tasty-wrapper-width;
+}

@@ -1,0 +1,124 @@
+/* ==========================================================================
+   #RESPONSIVE-SPACINGS
+   ========================================================================== */
+
+/**
+ * Utility classes enhancing the normal spacing classes by adding responsiveness
+ * to them. By default, there are not responsive spacings defined. You can
+ * generate responsive spacings by adding entries to the following three Sass
+ * maps, e.g.:
+ *
+ *   $tasty-responsive-spacing-directions: (
+ *     null: null,
+ *     "-bottom": "-bottom",
+ *   );
+ *
+ *   $tasty-responsive-spacing-properties: (
+ *     "margin": "margin",
+ *   );
+ *
+ *   $tasty-responsive-spacing-sizes: (
+ *     "-small": $tasty-global-spacing-unit-small,
+ *   );
+ *
+ * This would bring us the following classes:
+ *
+ *   .u-margin-small@mobile {}
+ *   .u-margin-small@tablet {}
+ *   .u-margin-small@desktop {}
+ *   .u-margin-small@wide {}
+ *   .u-margin-bottom-small@mobile {}
+ *   .u-margin-bottom-small@tablet {}
+ *   .u-margin-bottom-small@desktop {}
+ *   .u-margin-bottom-small@wide {}
+ *
+ * You can change the generated CSS classes by further extending the Sass maps.
+ * If you want every ‘normal’ spacing (those from `utilities.spacings`) also as
+ * a responsive version, you can just mirror the ‘normal’ spacings:
+ *
+ *   $tasty-responsive-spacing-directions: $tasty-spacing-directions !default;
+ *
+ *   $tasty-responsive-spacing-properties: $tasty-spacing-properties !default;
+ *
+ *   $tasty-responsive-spacing-sizes: $tasty-spacing-sizes !default;
+ *
+ * BUT BE AWARE: This can generate a huge chunk of extra CSS, depending on the
+ * amount of breakpoints you defined. So please check your CSS’ output and
+ * filesize!
+ */
+
+
+
+// The responsive spacings just make sense and work properly when the ‘normal’
+// spacings are included, too. In case they're not, we set `_utilities.spacings`
+// to `null`.
+$tasty-spacing-directions: null !default;
+
+// If the ‘normal’ spacings partial is not included, we provide an error message
+// to indicate this.
+@if $tasty-spacing-directions == null {
+  @error "In order to use responsive spacings, you also need to include `_utilities.spacings.scss`!";
+}
+@else {
+
+
+
+// When using Sass-MQ, this defines the separator for the breakpoints suffix
+// in the class name. By default, we are generating the responsive suffixes
+// for the classes with a `@` symbol so you get classes like:
+//
+//   <div class="u-margin-bottom@mobile">
+//
+// Be aware that since the `@` symbol is a reserved symbol in CSS, it has to be
+// escaped with a `\`. In the markup though, you write your classes without the
+// backslash (e.g. `u-margin-bottom@mobile`).
+$tasty-widths-breakpoint-separator: \@ !default;
+
+
+
+$tasty-responsive-spacing-directions: null !default;
+
+$tasty-responsive-spacing-properties: null !default;
+
+$tasty-responsive-spacing-sizes: null !default;
+
+
+
+/* stylelint-disable max-nesting-depth */
+
+// Don't output anything if no responsive spacings are defined.
+@if ($tasty-responsive-spacing-properties != null) {
+
+  @each $property-namespace, $property in $tasty-responsive-spacing-properties {
+
+    @each $direction-namespace, $direction-rules in $tasty-responsive-spacing-directions {
+
+      @each $size-namespace, $size in $tasty-responsive-spacing-sizes {
+
+        @each $tasty-bp-name, $tasty-bp-value in $mq-breakpoints {
+
+          @include mq($from: $tasty-bp-name) {
+
+            .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$tasty-widths-breakpoint-separator}#{$tasty-bp-name} {
+
+              @each $direction in $direction-rules {
+                #{$property}#{$direction}: $size !important;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+/* stylelint-enable max-nesting-depth */
+
+}

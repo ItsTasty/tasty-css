@@ -1,0 +1,47 @@
+{
+  "name": "tasty-css",
+  "version": "1.0.0",
+  "description": "Extensible, scalable, Sass-based, OOCSS framework for large and long-lasting UI projects.",
+  "main": "tasty.scss",
+  "scripts": {
+    "build": "gulp scss",
+    "test": "npm run lint && mocha test/run.js",
+    "lint": "./node_modules/.bin/stylelint \"**/*.scss\" --syntax scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itstasty/tasty-css.git"
+  },
+  "keywords": [
+    "oocss",
+    "sass",
+    "bem",
+    "itcss",
+    "css"
+  ],
+  "author": "Dean Morgan <dean.morgan@mediablox.co.uk>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/itstasty/tasty-css/issues"
+  },
+  "homepage": "https://github.com/itstasty/tasty-css#readme",
+  "dependencies": {
+    "sass-mq": "^5.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.0",
+    "glob": "^7.1.6",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "mocha": "^7.1.2",
+    "node-sass": "^4.14.1",
+    "release-it": "^13.6.1",
+    "sass-true": "^4.0.0",
+    "stylelint": "^13.5.0",
+    "stylelint-scss": "^3.17.2"
+  }
+}

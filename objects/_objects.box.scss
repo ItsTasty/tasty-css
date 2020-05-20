@@ -1,0 +1,54 @@
+/* ==========================================================================
+   #BOX
+   ========================================================================== */
+
+$tasty-box-padding:       $tasty-global-spacing-unit !default;
+$tasty-box-tiny-padding:  $tasty-global-spacing-unit-tiny !default;
+$tasty-box-small-padding: $tasty-global-spacing-unit-small !default;
+$tasty-box-large-padding: $tasty-global-spacing-unit-large !default;
+$tasty-box-huge-padding:  $tasty-global-spacing-unit-huge !default;
+
+/**
+ * The box object simply boxes off content. Extend with cosmetic styles in the
+ * Components layer.
+ *
+ * 1. So we can apply the `.o-box` class to naturally-inline elements.
+ */
+
+.o-box {
+  @include tasty-clearfix();
+  display: block; /* [1] */
+  padding: $tasty-box-padding;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+
+
+
+
+/* Size variants
+   ========================================================================== */
+
+.o-box--flush {
+  padding: 0;
+}
+
+.o-box--tiny {
+  padding: $tasty-box-tiny-padding;
+}
+
+.o-box--small {
+  padding: $tasty-box-small-padding;
+}
+
+.o-box--large {
+  padding: $tasty-box-large-padding;
+}
+
+.o-box--huge {
+  padding: $tasty-box-huge-padding;
+}
