@@ -6,7 +6,7 @@
   "scripts": {
     "build": "sass tasty.scss tasty.css",
     "test": "npm run lint && mocha test/run.js",
-    "lint": "./node_modules/.bin/stylelint \"**/*.scss\" --syntax scss"
+    "lint": "./node_modules/.bin/stylelint \"**/*.scss\""
   },
   "repository": {
     "type": "git",
@@ -29,12 +29,13 @@
     "sass-mq": "^6.0.0"
   },
   "devDependencies": {
-    "glob": "^7.2.0",
+    "glob": "^8.0.3",
     "mocha": "^9.2.1",
-    "release-it": "^14.12.5",
-    "sass": "^1.49.9",
-    "sass-true": "^6.0.1",
-    "stylelint": "^14.5.3",
-    "stylelint-scss": "^4.1.0"
+    "release-it": "^15.0.0",
+    "sass": "^1.51.0",
+    "sass-true": "^6.1.0",
+    "stylelint": "^14.8.2",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-scss": "^4.2.0"
   }
 }
