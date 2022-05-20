@@ -63,46 +63,48 @@ $tasty-spacing-directions: null !default;
 
 
 
-// When using Sass-MQ, this defines the separator for the breakpoints suffix
-// in the class name. By default, we are generating the responsive suffixes
-// for the classes with a `@` symbol so you get classes like:
-//
-//   <div class="u-margin-bottom@mobile">
-//
-// Be aware that since the `@` symbol is a reserved symbol in CSS, it has to be
-// escaped with a `\`. In the markup though, you write your classes without the
-// backslash (e.g. `u-margin-bottom@mobile`).
-$tasty-widths-breakpoint-separator: \@ !default;
+  // When using Sass-MQ, this defines the separator for the breakpoints suffix
+  // in the class name. By default, we are generating the responsive suffixes
+  // for the classes with a `@` symbol so you get classes like:
+  //
+  //   <div class="u-margin-bottom@mobile">
+  //
+  // Be aware that since the `@` symbol is a reserved symbol in CSS, it has to be
+  // escaped with a `\`. In the markup though, you write your classes without the
+  // backslash (e.g. `u-margin-bottom@mobile`).
+  $tasty-widths-breakpoint-separator: \@ !default;
 
 
 
-$tasty-responsive-spacing-directions: null !default;
+  $tasty-responsive-spacing-directions: null !default;
 
-$tasty-responsive-spacing-properties: null !default;
+  $tasty-responsive-spacing-properties: null !default;
 
-$tasty-responsive-spacing-sizes: null !default;
+  $tasty-responsive-spacing-sizes: null !default;
 
 
 
-/* stylelint-disable max-nesting-depth */
+  /* stylelint-disable max-nesting-depth */
 
-// Don't output anything if no responsive spacings are defined.
-@if ($tasty-responsive-spacing-properties != null) {
+  // Don't output anything if no responsive spacings are defined.
+  @if ($tasty-responsive-spacing-properties != null) {
 
-  @each $property-namespace, $property in $tasty-responsive-spacing-properties {
+    @each $property-namespace, $property in $tasty-responsive-spacing-properties {
 
-    @each $direction-namespace, $direction-rules in $tasty-responsive-spacing-directions {
+      @each $direction-namespace, $direction-rules in $tasty-responsive-spacing-directions {
 
-      @each $size-namespace, $size in $tasty-responsive-spacing-sizes {
+        @each $size-namespace, $size in $tasty-responsive-spacing-sizes {
 
-        @each $tasty-bp-name, $tasty-bp-value in $mq-breakpoints {
+          @each $tasty-bp-name, $tasty-bp-value in $mq-breakpoints {
 
-          @include mq($from: $tasty-bp-name) {
+            @include mq($from: $tasty-bp-name) {
 
-            .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$tasty-widths-breakpoint-separator}#{$tasty-bp-name} {
+              .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$tasty-widths-breakpoint-separator}#{$tasty-bp-name} {
 
-              @each $direction in $direction-rules {
-                #{$property}#{$direction}: $size !important;
+                @each $direction in $direction-rules {
+                  #{$property}#{$direction}: $size !important;
+                }
+
               }
 
             }
@@ -117,8 +119,6 @@ $tasty-responsive-spacing-sizes: null !default;
 
   }
 
-}
-
-/* stylelint-enable max-nesting-depth */
+  /* stylelint-enable max-nesting-depth */
 
 }

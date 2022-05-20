@@ -14,10 +14,10 @@ $tasty-wrapper-padding: $tasty-global-spacing-unit !default;
 }
 
 .o-wrapper {
-  @include tasty-clearfix();
+  @include tasty-clearfix;
   padding-right: $tasty-wrapper-padding;
-  padding-left:  $tasty-wrapper-padding;
+  padding-left: $tasty-wrapper-padding;
   margin-right: auto;
-  margin-left:  auto;
+  margin-left: auto;
   max-width: $tasty-wrapper-width;
 }

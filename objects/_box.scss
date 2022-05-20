@@ -16,7 +16,7 @@ $tasty-box-huge-padding:  $tasty-global-spacing-unit-huge !default;
  */
 
 .o-box {
-  @include tasty-clearfix();
+  @include tasty-clearfix;
   display: block; /* [1] */
   padding: $tasty-box-padding;
 

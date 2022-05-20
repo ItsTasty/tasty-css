@@ -1,0 +1,16 @@
+@use '../node_modules/sass-true' as *;
+
+  @include it('Outputs a font size and line height based on keyword') {
+    @include assert {
+      @include output {
+        @include font-size('large');
+      }
+  
+      @include expect {
+        font-size: 2rem;
+        line-height: 3rem;
+      }
+    }
+  }
+  
+@include report;

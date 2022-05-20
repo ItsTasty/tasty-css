@@ -24,7 +24,7 @@ img {
 
 $tasty-static-images: true !default;
 
-  @if ($tasty-static-images == true) {
+@if ($tasty-static-images == true) {
 
   /**
    * If a `width` and/or `height` attribute has been explicitly defined, let’s

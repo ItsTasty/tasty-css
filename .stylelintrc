@@ -1,9 +1,12 @@
 {
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
   "plugins": [
     "stylelint-scss"
   ],
   "ignoreFiles": [
-    "./generic/_generic.normalize.scss",
+    "./generic/_normalize.scss",
     "./tools/*.scss",
     "./settings/*.scss",
     "./test/*.scss"
@@ -11,10 +14,20 @@
   "rules": {
     "scss/at-extend-no-missing-placeholder": true,
     "scss/at-function-pattern": "tasty-.+",
+    "scss/at-if-closing-brace-newline-after": null,
+    "scss/at-if-closing-brace-space-after": null,
+    "scss/at-if-no-null": null,
     "scss/at-mixin-pattern": "tasty-.+",
+    "scss/at-rule-conditional-no-parentheses": null,
+    "scss/comment-no-empty": null,
+    "scss/double-slash-comment-empty-line-before": null,
     "scss/dollar-variable-colon-space-before": "never",
+    "scss/dollar-variable-colon-space-after": "at-least-one-space",
+    "scss/dollar-variable-empty-line-before": null,
     "scss/partial-no-import": true,
     "scss/selector-no-redundant-nesting-selector": true,
+
+    "at-rule-empty-line-before": null,
     "at-rule-name-case": "lower",
     "at-rule-name-newline-after": "always-multi-line",
     "at-rule-name-space-after": "always-single-line",
@@ -23,6 +36,7 @@
 
     "block-closing-brace-newline-after": "always-multi-line",
     "block-closing-brace-newline-before": "always-multi-line",
+    "block-closing-brace-empty-line-before": null,
     "block-closing-brace-space-after": "always-single-line",
     "block-closing-brace-space-before": "always-single-line",
 
@@ -90,6 +104,7 @@
     "media-query-list-comma-space-after": "always-single-line",
     "media-query-list-comma-space-before": "never",
 
+    "no-descending-specificity": null,
     "no-duplicate-selectors": true,
     "no-empty-source": true,
     "no-eol-whitespace": true,
@@ -111,9 +126,12 @@
     "selector-attribute-operator-space-before": "never",
     "selector-attribute-quotes": "always",
 
+    "selector-class-pattern": "[a-z]-[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}",
+
     "selector-combinator-space-after": "always",
     "selector-combinator-space-before": "always",
 
+    "selector-list-comma-newline-after": null,
     "selector-list-comma-newline-before": "never-multi-line",
     "selector-list-comma-space-after": "always-single-line",
     "selector-list-comma-space-before": "never",

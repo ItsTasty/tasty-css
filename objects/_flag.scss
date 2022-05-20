@@ -27,68 +27,68 @@ $tasty-flag-huge-spacing:  $tasty-global-spacing-unit-huge !default;
   border-spacing: 0; /* [3] */
 }
 
-  /**
-   * Items within a flag object. There should only ever be one of each.
-   *
-   * 1. Default to aligning content to their middles.
-   */
+/**
+  * Items within a flag object. There should only ever be one of each.
+  *
+  * 1. Default to aligning content to their middles.
+  */
 
-  .o-flag__img,
-  .o-flag__body {
-    display: table-cell;
-    vertical-align: middle; /* [1] */
-  }
+.o-flag__img,
+.o-flag__body {
+  display: table-cell;
+  vertical-align: middle; /* [1] */
+}
 
-  /**
-   * Flag images have a space between them and the body of the object.
-   *
-   * 1. Force `.o-flag__img` to take up as little space as possible:
-   *    https://pixelsvsbytes.com/2012/02/this-css-layout-grid-is-no-holy-grail/
-   */
+/**
+  * Flag images have a space between them and the body of the object.
+  *
+  * 1. Force `.o-flag__img` to take up as little space as possible:
+  *    https://pixelsvsbytes.com/2012/02/this-css-layout-grid-is-no-holy-grail/
+  */
 
-  .o-flag__img {
-    width: 1px; /* [1] */
-    padding-right: $tasty-flag-spacing;
-
-    /**
-     * 1. Fixes problem with images disappearing.
-     *
-     *    The direct child selector '>' needs to remain in order for nested flag
-     *    objects to not inherit their parent’s formatting. In case the image tag
-     *    is wrapped into another tag, e.g. an anchor for linking reasons, it will
-     *    disappear. In that case try wrapping the whole o-flag__img object into
-     *    an anchor tag.
-     *
-     *    E.g.:
-     *
-     *      <a href="/">
-     *        <div class="o-flag__img">
-     *          <img src="./link/to/image.jpg" alt="image alt text">
-     *        </div>
-     *      </a>
-     */
-
-    > img {
-      max-width: none; /* [1] */
-    }
-
-  }
+.o-flag__img {
+  width: 1px; /* [1] */
+  padding-right: $tasty-flag-spacing;
 
   /**
-   * The container for the main content of the flag object.
-   *
-   * 1. Forces the `.flag__body` to take up all remaining space.
-   */
+    * 1. Fixes problem with images disappearing.
+    *
+    *    The direct child selector '>' needs to remain in order for nested flag
+    *    objects to not inherit their parent’s formatting. In case the image tag
+    *    is wrapped into another tag, e.g. an anchor for linking reasons, it will
+    *    disappear. In that case try wrapping the whole o-flag__img object into
+    *    an anchor tag.
+    *
+    *    E.g.:
+    *
+    *      <a href="/">
+    *        <div class="o-flag__img">
+    *          <img src="./link/to/image.jpg" alt="image alt text">
+    *        </div>
+    *      </a>
+    */
 
-  .o-flag__body {
-    width: auto; /* [1] */
-
-    &,
-    > :last-child {
-      margin-bottom: 0;
-    }
-
+  > img {
+    max-width: none; /* [1] */
   }
+
+}
+
+/**
+  * The container for the main content of the flag object.
+  *
+  * 1. Forces the `.flag__body` to take up all remaining space.
+  */
+
+.o-flag__body {
+  width: auto; /* [1] */
+
+  &,
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+}
 
 
 
@@ -101,7 +101,7 @@ $tasty-flag-huge-spacing:  $tasty-global-spacing-unit-huge !default;
 
   > .o-flag__img {
     padding-right: 0;
-    padding-left:  0;
+    padding-left: 0;
   }
 
 }
