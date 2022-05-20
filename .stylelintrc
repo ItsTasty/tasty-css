@@ -6,7 +6,7 @@
     "stylelint-scss"
   ],
   "ignoreFiles": [
-    "./generic/_normalize.scss",
+    "./generic/_reset.scss",
     "./tools/*.scss",
     "./settings/*.scss",
     "./test/*.scss"
