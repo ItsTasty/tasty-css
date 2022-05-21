@@ -1,6 +1,6 @@
 {
   "name": "@itstasty/tasty-css",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Extensible, scalable, Sass-based, OOCSS framework for large and long-lasting UI projects.",
   "main": "tasty.scss",
   "scripts": {
