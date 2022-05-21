@@ -6,7 +6,8 @@
   "scripts": {
     "build": "sass tasty.scss tasty.css",
     "test": "npm run lint && npm run build",
-    "lint": "./node_modules/.bin/stylelint \"**/*.scss\""
+    "lint": "./node_modules/.bin/stylelint \"**/*.scss\"",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
